@@ -76,7 +76,6 @@ public class ShoppingService {
         if (isValid) {
 
             Order order = new Order();
-
             orderRepo.save(order);
 
             List<LineItem> lineItems = new ArrayList<LineItem>();
@@ -96,7 +95,6 @@ public class ShoppingService {
                         lineItem.setProduct(product);
                         lineItem.setQuantity(item.quantity);
                         lineItem.setPrice(subtotal);
-
                         lineItemRepo.save(lineItem);
 
                         lineItems.add(lineItem);
@@ -149,7 +147,6 @@ public class ShoppingService {
             payment.setPaid(true);
             payment.setRefunded(false);
             payment.setAmount(amount);
-    
             paymentRepo.save(payment);
     
             return payment;

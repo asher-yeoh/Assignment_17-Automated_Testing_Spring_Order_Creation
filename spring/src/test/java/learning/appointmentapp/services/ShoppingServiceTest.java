@@ -223,9 +223,9 @@ public class ShoppingServiceTest {
         orderRepo.save(invalidOrder);
 
         LineItem lineItem1 = seedLineItem(validOrder, handphone, 2, 12000);
-        LineItem lineItem2 = seedLineItem(validOrder, laptop, 3, 19500);
-
         lineItemRepo.save(lineItem1);
+        
+        LineItem lineItem2 = seedLineItem(validOrder, laptop, 3, 19500);      
         lineItemRepo.save(lineItem2);
 
         Long orderId = invalidOrder.getId();
