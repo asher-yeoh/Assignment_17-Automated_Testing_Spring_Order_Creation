@@ -36,7 +36,7 @@ public class ShoppingService {
 
     public List<LineItem> checkCreateOrder(List<Cart> cart) {
 
-        // Check if the selected items are valid products.
+        // Check if the selected items are isValid products.
         // Check if the selected items have sufficient inventory.
         // Create the order.
         // Create the line items for the order.
@@ -44,36 +44,36 @@ public class ShoppingService {
 
         ArrayList<Boolean> checklist = new ArrayList<Boolean>();
 
-        boolean valid = true;
+        boolean isValid = true;
 
         for (Cart item: cart) {
 
-            boolean addItem = false;
+            boolean isAddItem = false;
             
             innerloop:
             for (Product product: products) {
 
                 if ((item.selectedProduct.equals(product.getName())) && (item.quantity <= product.getQuantity())) {
 
-                    addItem = true;
+                    isAddItem = true;
                     
                     break innerloop;
                 }
             }
 
-            checklist.add(addItem);
+            checklist.add(isAddItem);
         }
 
         for (boolean check: checklist) {
             if (!check) {
 
-                valid = false;
+                isValid = false;
                 
                 break;
             }
         }
 
-        if (valid) {
+        if (isValid) {
 
             Order order = new Order();
 
