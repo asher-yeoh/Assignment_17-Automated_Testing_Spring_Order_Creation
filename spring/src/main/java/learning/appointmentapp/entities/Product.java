@@ -10,9 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * Product
+ */
 @Entity
-@Table(name = "employees")
-public class Employee {
+@Table(name = "products")
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,42 +23,48 @@ public class Employee {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "email")
-    private String email;
+    @Column(name = "price")
+    private int price;
 
-    @OneToMany(mappedBy = "employee")
-    private Set<Appointment> appointments;
+    @Column(name = "quantity")
+    private int quantity;
+
+    @OneToMany(mappedBy = "product")
+    private Set<LineItem> lineItems;
 
     public Long getId() {
         return this.id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
-
+    
     public String getName() {
         return this.name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getEmail() {
-        return this.email;
+    public int getPrice() {
+        return this.price;
+    }
+    public void setPrice(int price) {
+        this.price = price;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public int getQuantity() {
+        return this.quantity;
     }
-
-    public Set<Appointment> getAppointments() {
-        return this.appointments;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }   
+    
+    public Set<LineItem> getLineItems() {
+        return this.lineItems;
     }
-
-    public void setAppointments(Set<Appointment> appointments) {
-        this.appointments = appointments;
+    public void setLineItems(Set<LineItem> lineItems) {
+        this.lineItems = lineItems;
     }
 
 }
