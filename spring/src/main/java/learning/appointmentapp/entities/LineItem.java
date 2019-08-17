@@ -36,6 +36,7 @@ public class LineItem {
     public Long getId() {
         return this.id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -43,6 +44,7 @@ public class LineItem {
     public int getQuantity() {
         return this.quantity;
     }
+
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
@@ -50,6 +52,7 @@ public class LineItem {
     public int getPrice() {
         return this.price;
     }
+
     public void setPrice(int price) {
         this.price = price;
     }
@@ -64,6 +67,7 @@ public class LineItem {
     public Product getProduct() {
         return this.product;
     }
+    
     public void setProduct(Product product) {
         this.product = product;
     }   

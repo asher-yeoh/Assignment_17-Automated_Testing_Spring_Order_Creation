@@ -35,6 +35,7 @@ public class Payment {
     public Long getId() {
         return this.id;
     }
+    
     public void setId(Long id) {
         this.id = id;
     }
@@ -42,6 +43,7 @@ public class Payment {
     public boolean getPaid() {
         return this.paid;
     }
+
     public void setPaid(boolean paid) {
         this.paid = paid;
     }
@@ -49,6 +51,7 @@ public class Payment {
     public boolean getRefunded() {
         return this.refunded;
     }
+
     public void setRefunded(boolean refunded) {
         this.refunded = refunded;
     }
@@ -56,6 +59,7 @@ public class Payment {
     public int getAmount() {
         return this.amount;
     }
+
     public void setAmount(int amount) {
         this.amount = amount;
     }
@@ -63,6 +67,7 @@ public class Payment {
     public Order getOrder() {
         return this.order;
     }
+    
     public void setOrder(Order order) {
         this.order = order;
     }  

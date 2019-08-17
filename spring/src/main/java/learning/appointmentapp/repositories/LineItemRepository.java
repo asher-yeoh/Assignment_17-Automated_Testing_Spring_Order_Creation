@@ -11,6 +11,6 @@ import learning.appointmentapp.entities.Order;
  * LineItemRepository
  */
 public interface LineItemRepository extends JpaRepository<LineItem, Long> {
-    List<LineItem> findByOrder (Order order);
+
     
 }

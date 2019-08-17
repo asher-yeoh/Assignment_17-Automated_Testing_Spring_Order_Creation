@@ -35,6 +35,7 @@ public class Order {
     public Set<Payment> getPayments() {
     	return this.payments;
     }
+
     public void setPayments(Set<Payment> payments) {
     	this.payments = payments;
     }
@@ -42,10 +43,9 @@ public class Order {
     public Set<LineItem> getLineItems() {
     	return this.lineItems;
     }
+
     public void setLineItems(Set<LineItem> lineItems) {
     	this.lineItems = lineItems;
     }
-
-    
 
 }
