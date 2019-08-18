@@ -270,7 +270,7 @@ public class ShoppingServiceTest {
 
         // THEN:
         // Check if this is a valid refund.
-        // Check if the refund is recorded with correct details - order_id/paid=true/refunded=true.
+        // Check if the payment is amended with correct refund details - order_id/paid=true/refunded=true.
         assertNotEquals(null, result);
         assertEquals(paymentId, result.getId());
         assertEquals(orderId, result.getOrder().getId());
@@ -307,7 +307,7 @@ public class ShoppingServiceTest {
 
         // THEN:
         // Check if this is an invalid refund where order is not paid yet.
-        // Check if the refund is kept with correct details - order_id/paid=false/refunded=false.
+        // Check if the payment is kept with unamended details - order_id/paid=false/refunded=false.
         assertNotEquals(null, result);
         assertEquals(paymentId, result.getId());
         assertEquals(orderId, result.getOrder().getId());
@@ -316,7 +316,7 @@ public class ShoppingServiceTest {
     }
 
     @Test
-    public void testRefundPaymentInvalidInvalidOrder() {
+    public void testRefundPaymentInvalidRefunded() {
 
         // GIVE
         // Payment is created for an order with line items.
@@ -344,7 +344,7 @@ public class ShoppingServiceTest {
 
         // THEN:
         // Check if this is an invalid refund where refund status is already true.
-        // Check if the refund is kept with correct details - order_id/paid=true/refunded=false.
+        // Check if the payment is kept with unamended details - order_id/paid=true/refunded=true.
         assertNotEquals(null, result);
         assertEquals(paymentId, result.getId());
         assertEquals(orderId, result.getOrder().getId());
@@ -353,11 +353,10 @@ public class ShoppingServiceTest {
     }
 
     @Test
-    public void testRefundPaymentInvalidRefunded() {
+    public void testRefundPaymentInvalidInvalidOrder() {
 
         // GIVE
-        // Payment is created for an order with line items.
-        // Order is already paid and refund status is already true.
+        // Invalid order is given which does not exist in Orders table.
         Product laptop = seedProduct("Dell Latitude 7390 2-in-1", 6500, 17);
         Product handphone = seedProduct("iPhone XS", 6000, 6);
 
@@ -373,7 +372,7 @@ public class ShoppingServiceTest {
         LineItem lineItem2 = seedLineItem(validOrder, laptop, 3, 19500);        
         lineItemRepo.save(lineItem2);
 
-        seedPayment(validOrder, true, true, 31500);
+        seedPayment(validOrder, true, false, 31500);
 
         Long orderId = invalidOrder.getId();
    
